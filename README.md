@@ -1,39 +1,46 @@
-# TraceNote — Evidence-first research workflow
+# TraceNote — Evidence-first Research Workflow
 
-**TraceNote** is an interview-ready prototype for student teams and community research groups. It turns research notes into a structured review brief while prioritising evidence traceability and human review over a polished but potentially unsupported summary.
+TraceNote is a lightweight browser-based workflow for student teams and community groups that need to turn research notes into a reviewable brief. It prioritises evidence traceability and uncertainty handling over producing a polished summary that may hide conflicting information.
 
 ## Live demo
-After the GitHub Pages workflow finishes successfully, the demo should be available at:
 https://kkiaraleee.github.io/project1/
 
-## Try the demo
-1. Open the sample notes: the draft says **72%** preferred reminder emails while the raw survey note says **43%**.
-2. Click **Check evidence**. The prototype flags the mismatch instead of choosing a figure.
-3. Inspect the source IDs in the evidence ledger.
-4. Export a Markdown review handoff for a teammate.
-5. Run the built-in sanity checks.
+## Try it
+1. Load the sample notes. The draft says **72%** preferred reminder emails, while the raw survey note says **43%**.
+2. Click **Check evidence**.
+3. Inspect the source IDs and numerical-claim audit.
+4. Review the flagged figure instead of letting the tool choose one automatically.
+5. Export a Markdown review note and run the built-in sanity checks.
 
-## User and workflow
-- **User:** a student project team, club committee, or small community research group.
-- **Inputs:** approved research notes and a draft paragraph.
-- **Steps:** segment notes into source IDs → inspect numeric claims → flag unmatched figures → prepare digest and action items → human review → export handoff.
-- **Human handoff:** contradictory figures, weak evidence, ambiguous claims, or sensitive information require review before external sharing.
-- **Privacy boundary:** this static demo processes inputs in the browser; it does not call a model API or save notes persistently. Do not paste confidential or identifying information into a public demo.
+## Workflow
+1. **Input:** a team member pastes approved research notes and a draft paragraph.
+2. **Prepare:** the notes are assigned stable source IDs.
+3. **Check:** simple rules compare draft percentages with the supplied evidence.
+4. **Structure:** the interface displays a digest, evidence ledger and possible action items.
+5. **Handoff:** conflicts or weak evidence are flagged for a person to verify before sharing.
+
+## Design principle
+**Do not guess when the evidence disagrees.** A conflicting number can refer to a different group, period or measurement. TraceNote preserves the source figures and makes the uncertainty visible, leaving the decision to a human reviewer.
 
 ## Evaluation examples
-- Draft says 72%, raw note says 43% → must flag the mismatch and preserve both figures.
-- No source notes → ask for input rather than inventing a result.
-- Email address in text → mask the common email pattern in exported draft.
-- Action phrase in a draft → show a potential next step for human confirmation.
+- Draft says 72%, source note says 43% → flag the mismatch and preserve both figures.
+- No source notes → ask for input instead of inventing findings.
+- Email-like contact information → mask a common email pattern in the exported draft.
+- Explicit next step → show a potential action item for human confirmation.
 
-These checks test simple prototype rules, **not** the accuracy of a production AI model. The current version uses deterministic JavaScript rules, not a live LLM, semantic verification, or external fact-checking.
+Potential metrics for a future pilot include evidence coverage, recall on seeded numerical conflicts, unsupported-claim rate, reviewer usefulness, privacy leakage and time saved. Any target thresholds should be treated as goals until they are measured.
 
-## Files
+## Privacy and limitations
+The current static demo processes input in the browser. It does not call an LLM API or persistently store notes. It uses deterministic JavaScript rules, not semantic verification or external fact-checking; therefore, a clean result is not proof that a claim is true. Do not paste confidential, sensitive or identifying data into a public demo.
+
+A production version would require permission for data sources, access control, retention and deletion rules, a validated model-output schema, evidence checks, and a human approval gate.
+
+## Project files
 - `index.html` — interactive browser prototype
 - `TraceNote_Workflow.svg` — editable workflow diagram
-- `MODEL_CONTRACT.md` — proposed model output contract and validators
-- `EVALUATION_CASES.json` — sample evaluation cases
-- `INTERVIEW_GUIDE.md` — project rationale, evaluation plan and interview pitch
+- `MODEL_CONTRACT.md` — proposed model output structure and validation rules
+- `EVALUATION_CASES.json` — example evaluation cases
+- `.github/workflows/pages.yml` — GitHub Pages deployment workflow
 
 ## Deployment
-GitHub Pages is configured through the workflow in `.github/workflows/pages.yml`, which publishes the repository root when changes are pushed to `main`.
+GitHub Pages is published through the GitHub Actions workflow in `.github/workflows/pages.yml` when changes reach the `main` branch.
