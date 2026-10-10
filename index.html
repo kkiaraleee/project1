@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111c36">
+<title>TraceNote — Evidence-first research workspace</title>
+<style>
+:root{--ink:#15213b;--muted:#64718b;--line:#dfe5ef;--paper:#f5f7fb;--white:#fff;--blue:#315be8;--blue2:#eaf0ff;--teal:#087f73;--teal2:#e7f7f3;--amber:#a15c08;--amber2:#fff3dc;--red:#b93844;--red2:#fff0f1;--shadow:0 18px 50px rgba(25,39,70,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,textarea,input{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font-weight:650;transition:.15s}button:hover{transform:translateY(-1px)}.primary{background:var(--blue);color:white;box-shadow:0 5px 12px #315be82b}.ghost{background:white;border:1px solid var(--line);color:var(--ink)}.dark{background:#18233d;color:white}.wrap{max-width:1250px;margin:auto;padding:25px 26px 48px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:42px}.brand{display:flex;align-items:center;gap:11px;font-weight:850;font-size:19px;letter-spacing:-.6px}.mark{display:grid;place-items:center;width:38px;height:38px;background:var(--ink);border-radius:12px;color:white;font-weight:900}.topright{display:flex;align-items:center;gap:9px}.pill{font-size:12px;padding:6px 10px;border-radius:99px;background:var(--teal2);color:var(--teal);font-weight:750}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:end;margin-bottom:30px}.eyebrow{font-size:12px;font-weight:850;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px}.hero h1{font-size:clamp(34px,5vw,55px);line-height:1.04;letter-spacing:-2px;margin:0 0 16px;max-width:770px}.hero h1 em{color:var(--blue);font-style:normal}.hero p{color:var(--muted);font-size:17px;max-width:730px;margin:0}.heroNote{border:1px solid #d8e2ff;background:linear-gradient(140deg,#f0f4ff,#fff);padding:19px;border-radius:17px}.heroNote b{display:block;margin:7px 0}.heroNote p{font-size:13px}.sectionLabel{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:1.1px;margin:25px 0 12px}.sectionLabel:after{content:"";height:1px;background:var(--line);flex:1}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:24px}.step{background:white;border:1px solid var(--line);border-radius:14px;padding:14px;min-height:124px}.num{display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:var(--blue2);color:var(--blue);font-size:12px;font-weight:900;margin-bottom:12px}.step strong{display:block;font-size:14px;margin-bottom:4px}.step span{display:block;font-size:12px;line-height:1.4;color:var(--muted)}.appgrid{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,1fr);gap:16px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}.panelHead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}.panelHead h2{margin:0;font-size:17px;letter-spacing:-.3px}.kicker{font-size:11px;color:var(--muted);font-weight:800;letter-spacing:.7px;text-transform:uppercase}.panelBody{padding:18px 20px 21px}.field{margin-bottom:17px}.field label{display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:800;margin-bottom:7px}.field label small{font-size:11px;color:var(--muted);font-weight:500}textarea{width:100%;min-height:190px;resize:vertical;border:1px solid #d5ddeb;border-radius:11px;padding:12px 13px;outline:none;color:var(--ink);background:#fcfdff;font-size:13px;line-height:1.6}textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #315be81a}#draft{min-height:105px}.fieldHelp{font-size:11px;color:var(--muted);margin-top:5px}.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.local{font-size:11px;color:var(--teal);font-weight:750;margin-left:auto;display:flex;align-items:center;gap:6px}.dot{height:7px;width:7px;background:#14a38e;border-radius:50%}.resultTop{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}.metric{flex:1;min-width:95px;background:#f7f9fd;border:1px solid var(--line);border-radius:11px;padding:11px 12px}.metric b{display:block;font-size:21px;letter-spacing:-.7px}.metric span{font-size:11px;color:var(--muted)}.status{border-radius:11px;padding:12px 14px;font-size:13px;margin:12px 0 16px}.status.good{background:var(--teal2);border:1px solid #b9e8dc;color:#075e55}.status.warn{background:var(--amber2);border:1px solid #f6dfaf;color:#7b470a}.status.bad{background:var(--red2);border:1px solid #f2c9cd;color:#8b2631}.resultSection{border-top:1px solid var(--line);padding:15px 0}.resultSection:first-of-type{border-top:0}.resultSection h3{font-size:13px;margin:0 0 9px;display:flex;align-items:center;gap:7px}.resultSection h3 span{font-size:10px;color:var(--muted);font-weight:550;margin-left:auto}.bullet{display:flex;gap:8px;margin:7px 0;font-size:13px}.bullet:before{content:"";flex:none;width:6px;height:6px;border-radius:2px;background:var(--blue);margin-top:7px}.table{width:100%;border-collapse:collapse;font-size:12px}.table th{text-align:left;font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);background:#f7f9fd}.table th,.table td{padding:9px;border-bottom:1px solid var(--line);vertical-align:top}.table tr:last-child td{border-bottom:0}.tag{display:inline-flex;align-items:center;border-radius:99px;padding:3px 7px;font-size:10px;font-weight:850;white-space:nowrap}.tag.ok{background:var(--teal2);color:var(--teal)}.tag.review{background:var(--amber2);color:var(--amber)}.tag.risk{background:var(--red2);color:var(--red)}.empty{padding:28px 15px;text-align:center;color:var(--muted);font-size:13px}.handoff{background:#f5f7fd;border:1px dashed #bcc9e4;border-radius:12px;padding:14px;margin-top:12px}.handoff h3{margin:0 0 5px;font-size:13px}.handoff p{font-size:12px;color:var(--muted);margin:0 0 10px}.below{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin-top:18px}.mini{background:white;border:1px solid var(--line);border-radius:14px;padding:16px}.mini h3{font-size:14px;margin:0 0 9px}.mini p,.mini li{font-size:12px;color:var(--muted)}.mini ul{padding-left:17px;margin:0}.tests{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.testResult{font-size:12px;margin-top:9px;color:var(--muted)}footer{display:flex;justify-content:space-between;gap:16px;margin-top:27px;padding-top:17px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}.modal{display:none;position:fixed;inset:0;background:#0b1530a6;padding:20px;z-index:5;align-items:center;justify-content:center}.modal.show{display:flex}.modalBox{background:white;border-radius:17px;max-width:700px;width:100%;max-height:85vh;overflow:auto;padding:23px;box-shadow:0 30px 100px #0004}.modalBox h2{margin-top:0}.modalBox pre{white-space:pre-wrap;background:#f6f8fc;padding:15px;border-radius:10px;font-size:12px}.closeRow{text-align:right}@media(max-width:900px){.hero{grid-template-columns:1fr}.steps{grid-template-columns:repeat(3,1fr)}.appgrid{grid-template-columns:1fr}.below{grid-template-columns:1fr 1fr}}@media(max-width:560px){.wrap{padding:16px}.top{margin-bottom:28px;align-items:flex-start}.topright{flex-direction:column;align-items:flex-end}.steps{grid-template-columns:1fr 1fr}.below{grid-template-columns:1fr}.panelBody{padding:15px}.hero h1{letter-spacing:-1.2px}footer{flex-direction:column}.local{margin:4px 0 0;flex-basis:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="mark">T/</div> TraceNote <span style="font-size:11px;color:var(--muted);font-weight:600">WORKSPACE</span></div>
+  <div class="topright"><span class="pill">● Evidence-first AI concept</span><button class="ghost" id="howBtn">How it works ↗</button></div>
+</header>
+<section class="hero">
+  <div><div class="eyebrow">Research workflow · Prototype 01</div><h1>Good summaries are useful.<br><em>Traceable summaries</em> are safer.</h1><p>Turn scattered research notes into a structured digest, while keeping claims tied to source snippets and flagging numerical conflicts for a human to review.</p></div>
+  <aside class="heroNote"><div class="kicker">Design principle</div><b>Don't guess when the evidence disagrees.</b><p>TraceNote demonstrates an evidence ledger and review handoff. This static prototype uses transparent browser-side rules, not a live LLM.</p></aside>
+</section>
+<div class="sectionLabel">The workflow</div>
+<section class="steps">
+  <div class="step"><div class="num">01</div><strong>Collect</strong><span>Paste notes and a draft claim.</span></div>
+  <div class="step"><div class="num">02</div><strong>Segment</strong><span>Give each source line an ID.</span></div>
+  <div class="step"><div class="num">03</div><strong>Check</strong><span>Compare numerical claims with notes.</span></div>
+  <div class="step"><div class="num">04</div><strong>Structure</strong><span>Digest, evidence ledger, action items.</span></div>
+  <div class="step"><div class="num">05</div><strong>Review</strong><span>Export an issue for human follow-up.</span></div>
+</section>
+<div class="sectionLabel">Try the prototype</div>
+<section class="appgrid">
+  <article class="panel">
+    <div class="panelHead"><div><div class="kicker">Workspace / Input</div><h2>Source notes & draft</h2></div><button class="ghost" id="sampleBtn">Load sample</button></div>
+    <div class="panelBody">
+      <div class="field"><label for="sources">Research notes <small>One note per line</small></label><textarea id="sources" spellcheck="false" aria-label="Research source notes"></textarea><div class="fieldHelp">Lines are assigned IDs (S01, S02...) locally so findings can point back to a source.</div></div>
+      <div class="field"><label for="draft">Draft paragraph to review</label><textarea id="draft" spellcheck="false" aria-label="Draft paragraph"></textarea><div class="fieldHelp">Try changing 43% to 72% to see a possible conflict flagged.</div></div>
+      <div class="actions"><button class="primary" id="analyzeBtn">Check evidence →</button><button class="ghost" id="resetBtn">Clear</button><span class="local"><i class="dot"></i> Browser-only processing</span></div>
+    </div>
+  </article>
+  <article class="panel">
+    <div class="panelHead"><div><div class="kicker">Workspace / Results</div><h2>Review dashboard</h2></div><span class="tag ok" id="runState">READY</span></div>
+    <div class="panelBody" id="results"><div class="empty">Load the example or paste notes, then choose <b>Check evidence</b> to generate a review.</div></div>
+  </article>
+</section>
+<section class="below">
+  <article class="mini"><h3>Evaluation examples</h3><ul><li>Conflicting percentages must be flagged, not silently resolved.</li><li>A note with no numerical evidence should be marked unsupported.</li><li>Action items should keep a source ID where possible.</li><li>Human reviewers decide whether a claim is publishable.</li></ul></article>
+  <article class="mini"><h3>Failure handling</h3><ul><li>Empty input → ask for source material.</li><li>Ambiguous figures → label for manual verification.</li><li>Rule misses context → show a limitation, not a confidence score.</li><li>Export or parsing issue → keep original notes available to the user.</li></ul></article>
+  <article class="mini"><h3>Privacy boundary</h3><ul><li>No API request or server-side storage in this demo.</li><li>Do not paste confidential, sensitive or identifying data.</li><li>Clear the fields when finished, especially on a shared device.</li><li>A production version needs access controls and a retention policy.</li></ul></article>
+</section>
+<div class="sectionLabel">Quality checks</div>
+<section class="panel"><div class="panelBody"><div class="tests"><div><div class="kicker">Built-in sanity checks</div><strong>Test the rules before trusting the output</strong><div class="fieldHelp">Small deterministic checks, not a benchmark of a production AI model.</div></div><button class="dark" id="testsBtn">Run demo checks</button></div><div class="testResult" id="testResult">No checks run yet.</div></div></section>
+<footer><span>TraceNote · Interview prototype · v0.1</span><span>Evidence can guide the workflow; a human owns the final decision.</span></footer>
+</div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalBox"><div class="closeRow"><button class="ghost" id="closeModal">Close ✕</button></div><h2 id="modalTitle">How TraceNote works</h2><p><b>Current implementation:</b> all processing happens in this page using transparent JavaScript rules. It splits lines into source IDs, detects percentage strings, looks for unsupported or mismatched draft percentages, and extracts simple action phrases.</p><p><b>Proposed AI-enabled version:</b> a language model could produce a structured summary and candidate citations, but a separate validation layer must verify that cited spans exist in the source and flag contradictory claims. Low-evidence or sensitive cases should be sent to a human reviewer.</p><p><b>Not implemented:</b> live LLM calls, semantic entailment, PDF parsing, web fact-checking, authentication, or data storage. The demo intentionally makes no performance claim about those components.</p></div></div>
+<script>
+(function(){
+const byId=id=>document.getElementById(id);
+const sampleSources=[
+"Survey results: 43% of respondents preferred reminder emails.",
+"Pilot log: 18 of 24 students successfully opened the course link.",
+"Interview notes: several students said deadlines were difficult to locate.",
+"Meeting note: the team will test clearer deadline labels next week.",
+"Privacy note: survey responses were collected without names."
+];
+const sampleDraft="The survey found that 72% of students preferred reminder emails. In the pilot, 18 of 24 students successfully opened the course link. The team should test clearer deadline labels next week.";
+byId("sources").value=sampleSources.join("\n");
+byId("draft").value=sampleDraft;
+const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+function lines(text){return text.split(/\r?\n/).map(s=>s.trim()).filter(Boolean)}
+function percentages(text){return [...text.matchAll(/\b(\d+(?:\.\d+)?)\s*%/g)].map(m=>({value:Number(m[1]),raw:m[0]}))}
+function runAnalysis(){
+ const sourceLines=lines(byId("sources").value),draft=byId("draft").value.trim();
+ if(!sourceLines.length||!draft){byId("runState").textContent="INPUT NEEDED";byId("runState").className="tag review";byId("results").innerHTML='<div class="status warn"><b>More information needed.</b><br>Add at least one source note and a draft paragraph. No result has been generated.</div>';return null}
+ const src=sourceLines.map((text,i)=>({id:"S"+String(i+1).padStart(2,"0"),text,percents:percentages(text)}));
+ const sourcePercents=src.flatMap(s=>s.percents.map(p=>({...p,sourceId:s.id,sourceText:s.text})));
+ const draftPercents=percentages(draft);
+ const findings=draftPercents.map(p=>{
+  const exact=sourcePercents.filter(s=>s.value===p.value);
+  const allSimilar=sourcePercents;
+  if(exact.length)return {value:p.raw,status:"supported",detail:"Exact numeric match found in "+exact.map(x=>x.sourceId).join(", "),sources:exact.map(x=>x.sourceId)};
+  if(allSimilar.length)return {value:p.raw,status:"review",detail:"No exact match. Source notes contain "+allSimilar.map(x=>x.raw+" ("+x.sourceId+")").join(", "),sources:allSimilar.map(x=>x.sourceId)};
+  return {value:p.raw,status:"unsupported",detail:"No percentage evidence found in the supplied notes.",sources:[]};
+ });
+ const actionRegex=/\b(will|should|need to|needs to|must|plan to|next step is|follow up|follow-up|test|review|verify|confirm|check)\b[^.!?;\n]*/ig;
+ const actions=[...draft.matchAll(actionRegex)].map(m=>m[0].trim()).filter((v,i,a)=>v.length>8&&a.findIndex(x=>x.toLowerCase()===v.toLowerCase())===i).slice(0,5);
+ const hasConflict=findings.some(f=>f.status==="review"||f.status==="unsupported");
+ const evidenceRows=src.slice(0,10).map(s=>({id:s.id,text:s.text,percent:s.percents.map(p=>p.raw).join(", ")||"—"}));
+ const riskCount=findings.filter(f=>f.status!=="supported").length;
+ const safeDraft=draft.replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/ig,"[EMAIL REDACTED]").replace(/\b(?:\+?\d[\d\s().-]{7,}\d)\b/g,"[PHONE REDACTED]");
+ const summary=src.slice(0,3).map(s=>s.text);
+ byId("runState").textContent=hasConflict?"REVIEW REQUIRED":"CHECK COMPLETE";
+ byId("runState").className="tag "+(hasConflict?"review":"ok");
+ let html='<div class="resultTop"><div class="metric"><b>'+src.length+'</b><span>Source notes</span></div><div class="metric"><b>'+findings.length+'</b><span>Numeric claims</span></div><div class="metric"><b>'+riskCount+'</b><span>Claims to review</span></div></div>';
+ if(hasConflict)html+='<div class="status warn"><b>Human review required.</b><br>One or more numbers could not be matched exactly to the supplied notes. The prototype does not decide which figure is correct.</div>';
+ else html+='<div class="status good"><b>No numeric mismatch detected by this simple rule.</b><br>This is not proof that the paragraph is factually correct; semantic claims still need review.</div>';
+ html+='<div class="resultSection"><h3>Draft digest <span>source-grounded, not a rewrite</span></h3>'+summary.map(s=>'<div class="bullet">'+escapeHtml(s)+'</div>').join("")+'</div>';
+ html+='<div class="resultSection"><h3>Evidence ledger <span>'+evidenceRows.length+' source lines</span></h3><table class="table"><thead><tr><th>ID</th><th>Source text</th><th>Figures</th></tr></thead><tbody>'+evidenceRows.map(s=>'<tr><td><b>'+s.id+'</b></td><td>'+escapeHtml(s.text)+'</td><td>'+escapeHtml(s.percent)+'</td></tr>').join("")+'</tbody></table></div>';
+ html+='<div class="resultSection"><h3>Numerical claim audit</h3>';
+ if(findings.length)html+='<table class="table"><thead><tr><th>Draft claim</th><th>Rule result</th></tr></thead><tbody>'+findings.map(f=>'<tr><td><b>'+escapeHtml(f.value)+'</b></td><td><span class="tag '+(f.status==="supported"?"ok":f.status==="review"?"review":"risk")+'">'+(f.status==="supported"?"MATCH FOUND":f.status==="review"?"CHECK CONFLICT":"NO EVIDENCE")+'</span><div style="margin-top:5px">'+escapeHtml(f.detail)+'</div></td></tr>').join("")+'</tbody></table>';
+ else html+='<p style="font-size:12px;color:var(--muted)">No percentage claims detected. Non-numeric factual claims are not semantically verified by this demo.</p>';
+ html+='</div><div class="resultSection"><h3>Potential action items</h3>';
+ html+=actions.length?actions.map(a=>'<div class="bullet">'+escapeHtml(a)+'</div>').join(""):'<p style="font-size:12px;color:var(--muted)">No simple action phrases detected. Add a clear owner or next step manually if needed.</p>';
+ html+='</div><div class="handoff"><h3>↗ Reviewer handoff</h3><p>'+(hasConflict?'Before sharing, ask a team member to inspect the original survey/source for the flagged figure(s).':'A reviewer should still verify that the cited notes support every substantive claim.')+' The export includes the draft, source IDs and flagged numerical claims.</p><button class="primary" id="exportBtn">Export review note ↓</button></div>';
+ byId("results").innerHTML=html;
+ byId("exportBtn").addEventListener("click",()=>exportReview({src,draft:safeDraft,findings,actions,hasConflict}));
+ return {src,draft:safeDraft,findings,actions,hasConflict};
+}
+function exportReview(data){
+ let out="# TraceNote — Human review handoff\n\n";
+ out+="## Status\n"+(data.hasConflict?"REVIEW REQUIRED — numerical evidence needs a human check.":"No numeric mismatch detected by the demo rule; factual review is still required.")+"\n\n";
+ out+="## Draft reviewed\n"+data.draft+"\n\n## Numerical claims\n";
+ out+=data.findings.length?data.findings.map(f=>"- "+f.value+" — "+f.status.toUpperCase()+": "+f.detail).join("\n"):"- No percentage claims detected by the demo rule.";
+ out+="\n\n## Source notes\n"+data.src.map(s=>"- "+s.id+": "+s.text).join("\n");
+ out+="\n\n## Potential action items\n"+(data.actions.length?data.actions.map(a=>"- "+a).join("\n"):"- None detected; please review manually.");
+ out+="\n\n## Limitation\nGenerated by a deterministic browser-side prototype. No LLM, semantic verification, or external fact-checking was used. Human review is required before sharing.";
+ const blob=new Blob([out],{type:"text/markdown;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="tracenote-review-handoff.md";a.click();URL.revokeObjectURL(url);
+}
+byId("sampleBtn").addEventListener("click",()=>{byId("sources").value=sampleSources.join("\n");byId("draft").value=sampleDraft;runAnalysis()});
+byId("analyzeBtn").addEventListener("click",runAnalysis);
+byId("resetBtn").addEventListener("click",()=>{byId("sources").value="";byId("draft").value="";byId("results").innerHTML='<div class="empty">Fields cleared. Add non-sensitive research notes to begin.</div>';byId("runState").textContent="READY";byId("runState").className="tag ok";});
+byId("howBtn").addEventListener("click",()=>byId("modal").classList.add("show"));
+byId("closeModal").addEventListener("click",()=>byId("modal").classList.remove("show"));
+byId("modal").addEventListener("click",e=>{if(e.target===byId("modal"))byId("modal").classList.remove("show")});
+byId("testsBtn").addEventListener("click",()=>{
+ const results=[];
+ results.push({name:"Detect mismatch: draft 72%, notes 43%",ok:percentages("72%").length===1&&percentages("43%").length===1&&percentages("72%")[0].value!==percentages("43%")[0].value});
+ results.push({name:"Empty input rejected",ok:lines("").length===0});
+ results.push({name:"Assign stable source IDs",ok:"S"+String(1).padStart(2,"0")==="S01"});
+ results.push({name:"Email redaction rule",ok:"person@example.com".replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/ig,"[EMAIL REDACTED]")==="[EMAIL REDACTED]"});
+ results.push({name:"Action phrase extraction rule",ok:/\b(will|should|must|review|verify|test)\b/i.test("The team will test a new label")});
+ const passed=results.filter(x=>x.ok).length;
+ byId("testResult").innerHTML='<b style="color:'+(passed===results.length?'var(--teal)':'var(--red)')+'">'+passed+' / '+results.length+' checks passed</b><br>'+results.map(x=>(x.ok?'✓':'✕')+' '+escapeHtml(x.name)).join("<br>")+'<br><br><span>These test rule plumbing, not real-world accuracy or model quality.</span>';
+});
+runAnalysis();
+})();
+</script>
+</body>
+</html>
