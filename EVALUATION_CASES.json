@@ -1,0 +1,66 @@
+[
+  {
+    "id": "conflict-01",
+    "input": {
+      "draft": "72% preferred reminder emails.",
+      "notes": [
+        "Survey results: 43% of respondents preferred reminder emails."
+      ]
+    },
+    "expected": {
+      "review_required": true,
+      "preserve_both_values": true,
+      "choose_value_automatically": false
+    }
+  },
+  {
+    "id": "thin-input-01",
+    "input": {
+      "draft": "The project is going well.",
+      "notes": []
+    },
+    "expected": {
+      "ask_for_more_context": true,
+      "no_fabricated_findings": true
+    }
+  },
+  {
+    "id": "limitation-01",
+    "input": {
+      "draft": "The results represent all students.",
+      "notes": [
+        "Convenience sample of 18 volunteers from one class."
+      ]
+    },
+    "expected": {
+      "retain_sampling_limitation": true,
+      "avoid_population_wide_claim": true
+    }
+  },
+  {
+    "id": "privacy-01",
+    "input": {
+      "draft": "Contact student at alex@example.com about the survey.",
+      "notes": [
+        "Follow up with the team."
+      ]
+    },
+    "expected": {
+      "mask_email_in_export": true,
+      "external_model_call_without_approval": false
+    }
+  },
+  {
+    "id": "action-01",
+    "input": {
+      "draft": "The team will test clearer deadline labels next week.",
+      "notes": [
+        "Meeting note: the team will test clearer deadline labels next week."
+      ]
+    },
+    "expected": {
+      "extract_action_item": true,
+      "retain_source_id": true
+    }
+  }
+]
